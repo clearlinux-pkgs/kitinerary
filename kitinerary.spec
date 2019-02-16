@@ -5,26 +5,28 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kitinerary
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kitinerary-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kitinerary-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kitinerary-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kitinerary-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kitinerary-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kitinerary-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
-Requires: kitinerary-lib
-Requires: kitinerary-license
-Requires: kitinerary-locales
-Requires: kitinerary-data
+Requires: kitinerary-data = %{version}-%{release}
+Requires: kitinerary-lib = %{version}-%{release}
+Requires: kitinerary-license = %{version}-%{release}
+Requires: kitinerary-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules pkgconfig(poppler)
 BuildRequires : kcalcore-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kmime-dev
 BuildRequires : kpkpass-dev
+BuildRequires : libxml2-dev
 BuildRequires : poppler-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : zlib-dev
 
 %description
@@ -43,9 +45,9 @@ data components for the kitinerary package.
 %package dev
 Summary: dev components for the kitinerary package.
 Group: Development
-Requires: kitinerary-lib
-Requires: kitinerary-data
-Provides: kitinerary-devel
+Requires: kitinerary-lib = %{version}-%{release}
+Requires: kitinerary-data = %{version}-%{release}
+Provides: kitinerary-devel = %{version}-%{release}
 
 %description dev
 dev components for the kitinerary package.
@@ -54,8 +56,8 @@ dev components for the kitinerary package.
 %package lib
 Summary: lib components for the kitinerary package.
 Group: Libraries
-Requires: kitinerary-data
-Requires: kitinerary-license
+Requires: kitinerary-data = %{version}-%{release}
+Requires: kitinerary-license = %{version}-%{release}
 
 %description lib
 lib components for the kitinerary package.
@@ -78,25 +80,25 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-18.08.0
+%setup -q -n kitinerary-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535430242
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1550285777
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535430242
+export SOURCE_DATE_EPOCH=1550285777
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kitinerary
-cp COPYING.LIB %{buildroot}/usr/share/doc/kitinerary/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -114,27 +116,30 @@ popd
 /usr/include/KPim/KItinerary/Action
 /usr/include/KPim/KItinerary/AirportDb
 /usr/include/KPim/KItinerary/BarcodeDecoder
+/usr/include/KPim/KItinerary/Brand
 /usr/include/KPim/KItinerary/BusTrip
 /usr/include/KPim/KItinerary/CalendarHandler
 /usr/include/KPim/KItinerary/CountryDb
 /usr/include/KPim/KItinerary/Datatypes
+/usr/include/KPim/KItinerary/Event
 /usr/include/KPim/KItinerary/Extractor
 /usr/include/KPim/KItinerary/ExtractorEngine
 /usr/include/KPim/KItinerary/ExtractorPostprocessor
-/usr/include/KPim/KItinerary/ExtractorPreprocessor
-/usr/include/KPim/KItinerary/ExtractorRepository
 /usr/include/KPim/KItinerary/Flight
+/usr/include/KPim/KItinerary/HtmlDocument
 /usr/include/KPim/KItinerary/IataBcbpParser
 /usr/include/KPim/KItinerary/JsonLdDocument
 /usr/include/KPim/KItinerary/KnowledgeDb
+/usr/include/KPim/KItinerary/LocationUtil
 /usr/include/KPim/KItinerary/MergeUtil
 /usr/include/KPim/KItinerary/Organization
 /usr/include/KPim/KItinerary/PdfDocument
 /usr/include/KPim/KItinerary/Person
 /usr/include/KPim/KItinerary/Place
+/usr/include/KPim/KItinerary/RentalCar
 /usr/include/KPim/KItinerary/Reservation
 /usr/include/KPim/KItinerary/SortUtil
-/usr/include/KPim/KItinerary/StructuredDataExtractor
+/usr/include/KPim/KItinerary/Taxi
 /usr/include/KPim/KItinerary/Ticket
 /usr/include/KPim/KItinerary/TrainStationDb
 /usr/include/KPim/KItinerary/TrainTrip
@@ -143,28 +148,31 @@ popd
 /usr/include/KPim/kitinerary/action.h
 /usr/include/KPim/kitinerary/airportdb.h
 /usr/include/KPim/kitinerary/barcodedecoder.h
+/usr/include/KPim/kitinerary/brand.h
 /usr/include/KPim/kitinerary/bustrip.h
 /usr/include/KPim/kitinerary/calendarhandler.h
 /usr/include/KPim/kitinerary/countrydb.h
 /usr/include/KPim/kitinerary/datatypes.h
+/usr/include/KPim/kitinerary/event.h
 /usr/include/KPim/kitinerary/extractor.h
 /usr/include/KPim/kitinerary/extractorengine.h
 /usr/include/KPim/kitinerary/extractorpostprocessor.h
-/usr/include/KPim/kitinerary/extractorpreprocessor.h
-/usr/include/KPim/kitinerary/extractorrepository.h
 /usr/include/KPim/kitinerary/flight.h
+/usr/include/KPim/kitinerary/htmldocument.h
 /usr/include/KPim/kitinerary/iatabcbpparser.h
 /usr/include/KPim/kitinerary/jsonlddocument.h
 /usr/include/KPim/kitinerary/kitinerary_export.h
 /usr/include/KPim/kitinerary/knowledgedb.h
+/usr/include/KPim/kitinerary/locationutil.h
 /usr/include/KPim/kitinerary/mergeutil.h
 /usr/include/KPim/kitinerary/organization.h
 /usr/include/KPim/kitinerary/pdfdocument.h
 /usr/include/KPim/kitinerary/person.h
 /usr/include/KPim/kitinerary/place.h
+/usr/include/KPim/kitinerary/rentalcar.h
 /usr/include/KPim/kitinerary/reservation.h
 /usr/include/KPim/kitinerary/sortutil.h
-/usr/include/KPim/kitinerary/structureddataextractor.h
+/usr/include/KPim/kitinerary/taxi.h
 /usr/include/KPim/kitinerary/ticket.h
 /usr/include/KPim/kitinerary/trainstationdb.h
 /usr/include/KPim/kitinerary/traintrip.h
@@ -179,11 +187,11 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.9.0
+/usr/lib64/libKPimItinerary.so.5.10.2
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kitinerary/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kitinerary/COPYING.LIB
 
 %files locales -f kitinerary.lang
 %defattr(-,root,root,-)
