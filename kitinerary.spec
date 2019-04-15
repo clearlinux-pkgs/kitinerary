@@ -6,11 +6,11 @@
 #
 Name     : kitinerary
 Version  : 18.12.3
-Release  : 5
+Release  : 6
 URL      : https://download.kde.org/stable/applications/18.12.3/src/kitinerary-18.12.3.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.12.3/src/kitinerary-18.12.3.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.12.3/src/kitinerary-18.12.3.tar.xz.sig
-Summary  : No detailed summary available
+Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: kitinerary-data = %{version}-%{release}
@@ -48,6 +48,7 @@ Group: Development
 Requires: kitinerary-lib = %{version}-%{release}
 Requires: kitinerary-data = %{version}-%{release}
 Provides: kitinerary-devel = %{version}-%{release}
+Requires: kitinerary = %{version}-%{release}
 
 %description dev
 dev components for the kitinerary package.
@@ -87,16 +88,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552019382
+export SOURCE_DATE_EPOCH=1555335493
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552019382
+export SOURCE_DATE_EPOCH=1555335493
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/COPYING.LIB
