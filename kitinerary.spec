@@ -6,7 +6,7 @@
 #
 Name     : kitinerary
 Version  : 19.04.2
-Release  : 12
+Release  : 13
 URL      : https://download.kde.org/stable/applications/19.04.2/src/kitinerary-19.04.2.tar.xz
 Source0  : https://download.kde.org/stable/applications/19.04.2/src/kitinerary-19.04.2.tar.xz
 Source99 : https://download.kde.org/stable/applications/19.04.2/src/kitinerary-19.04.2.tar.xz.sig
