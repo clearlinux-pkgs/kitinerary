@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kitinerary
-Version  : 19.04.3
-Release  : 14
-URL      : https://download.kde.org/stable/applications/19.04.3/src/kitinerary-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/kitinerary-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/kitinerary-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 15
+URL      : https://download.kde.org/stable/applications/19.08.0/src/kitinerary-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/kitinerary-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/kitinerary-19.08.0.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -82,16 +82,17 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-19.04.3
+%setup -q -n kitinerary-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562904411
+export SOURCE_DATE_EPOCH=1565924890
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,7 +106,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562904411
+export SOURCE_DATE_EPOCH=1565924890
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/COPYING.LIB
@@ -120,7 +121,7 @@ popd
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/xdg/org_kde_kitinerary.categories
+/usr/share/qlogging-categories5/org_kde_kitinerary.categories
 
 %files dev
 %defattr(-,root,root,-)
@@ -144,6 +145,7 @@ popd
 /usr/include/KPim/KItinerary/MergeUtil
 /usr/include/KPim/KItinerary/Organization
 /usr/include/KPim/KItinerary/PdfDocument
+/usr/include/KPim/KItinerary/PdfImage
 /usr/include/KPim/KItinerary/Person
 /usr/include/KPim/KItinerary/Place
 /usr/include/KPim/KItinerary/Rct2Ticket
@@ -176,6 +178,7 @@ popd
 /usr/include/KPim/kitinerary/mergeutil.h
 /usr/include/KPim/kitinerary/organization.h
 /usr/include/KPim/kitinerary/pdfdocument.h
+/usr/include/KPim/kitinerary/pdfimage.h
 /usr/include/KPim/kitinerary/person.h
 /usr/include/KPim/kitinerary/place.h
 /usr/include/KPim/kitinerary/rct2ticket.h
@@ -196,7 +199,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.11.3
+/usr/lib64/libKPimItinerary.so.5.12.0
 
 %files license
 %defattr(0644,root,root,0755)
