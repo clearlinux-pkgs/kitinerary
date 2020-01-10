@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kitinerary
-Version  : 19.12.0
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/19.12.0/src/kitinerary-19.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.0/src/kitinerary-19.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.0/src/kitinerary-19.12.0.tar.xz.sig
+Version  : 19.12.1
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/19.12.1/src/kitinerary-19.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.1/src/kitinerary-19.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.1/src/kitinerary-19.12.1.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
-License  : LGPL-2.1
+License  : LGPL-2.0
 Requires: kitinerary-data = %{version}-%{release}
 Requires: kitinerary-lib = %{version}-%{release}
 Requires: kitinerary-license = %{version}-%{release}
@@ -31,9 +31,9 @@ BuildRequires : qtbase-dev mesa-dev
 BuildRequires : zlib-dev
 
 %description
-Updating the airport database
-=============================
-(1) Download timezone shapefile
+Development tip: symlink this folder to $PREFIX/share/kitinerary/extractors
+It will then take priority over the compiled-in files allowing you to test
+script changes without recompilation.
 
 %package data
 Summary: data components for the kitinerary package.
@@ -49,6 +49,7 @@ Group: Development
 Requires: kitinerary-lib = %{version}-%{release}
 Requires: kitinerary-data = %{version}-%{release}
 Provides: kitinerary-devel = %{version}-%{release}
+Requires: kitinerary = %{version}-%{release}
 Requires: kitinerary = %{version}-%{release}
 
 %description dev
@@ -82,17 +83,18 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-19.12.0
-cd %{_builddir}/kitinerary-19.12.0
+%setup -q -n kitinerary-19.12.1
+cd %{_builddir}/kitinerary-19.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576623044
+export SOURCE_DATE_EPOCH=1578695659
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -106,10 +108,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576623044
+export SOURCE_DATE_EPOCH=1578695659
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
-cp %{_builddir}/kitinerary-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kitinerary-19.12.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -220,11 +222,11 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.13.0
+/usr/lib64/libKPimItinerary.so.5.13.1
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kitinerary/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+/usr/share/package-licenses/kitinerary/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 
 %files locales -f kitinerary.lang
 %defattr(-,root,root,-)
