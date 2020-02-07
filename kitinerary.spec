@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kitinerary
-Version  : 19.12.1
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/19.12.1/src/kitinerary-19.12.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.1/src/kitinerary-19.12.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.1/src/kitinerary-19.12.1.tar.xz.sig
+Version  : 19.12.2
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/19.12.2/src/kitinerary-19.12.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.2/src/kitinerary-19.12.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.2/src/kitinerary-19.12.2.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -83,15 +83,15 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-19.12.1
-cd %{_builddir}/kitinerary-19.12.1
+%setup -q -n kitinerary-19.12.2
+cd %{_builddir}/kitinerary-19.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578695659
+export SOURCE_DATE_EPOCH=1581047983
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -108,10 +108,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1578695659
+export SOURCE_DATE_EPOCH=1581047983
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
-cp %{_builddir}/kitinerary-19.12.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kitinerary-19.12.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -140,6 +140,7 @@ popd
 /usr/include/KPim/KItinerary/DocumentUtil
 /usr/include/KPim/KItinerary/Event
 /usr/include/KPim/KItinerary/Extractor
+/usr/include/KPim/KItinerary/ExtractorCapabilities
 /usr/include/KPim/KItinerary/ExtractorEngine
 /usr/include/KPim/KItinerary/ExtractorFilter
 /usr/include/KPim/KItinerary/ExtractorInput
@@ -182,6 +183,7 @@ popd
 /usr/include/KPim/kitinerary/documentutil.h
 /usr/include/KPim/kitinerary/event.h
 /usr/include/KPim/kitinerary/extractor.h
+/usr/include/KPim/kitinerary/extractorcapabilities.h
 /usr/include/KPim/kitinerary/extractorengine.h
 /usr/include/KPim/kitinerary/extractorfilter.h
 /usr/include/KPim/kitinerary/extractorinput.h
@@ -222,7 +224,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.13.1
+/usr/lib64/libKPimItinerary.so.5.13.2
 
 %files license
 %defattr(0644,root,root,0755)
