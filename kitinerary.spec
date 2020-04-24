@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kitinerary
-Version  : 19.12.3
-Release  : 24
-URL      : https://download.kde.org/stable/release-service/19.12.3/src/kitinerary-19.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kitinerary-19.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kitinerary-19.12.3.tar.xz.sig
+Version  : 20.04.0
+Release  : 25
+URL      : https://download.kde.org/stable/release-service/20.04.0/src/kitinerary-20.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kitinerary-20.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kitinerary-20.04.0.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -26,6 +26,7 @@ BuildRequires : kcontacts-dev
 BuildRequires : kmime-dev
 BuildRequires : kpkpass-dev
 BuildRequires : libxml2-dev
+BuildRequires : openssl-dev
 BuildRequires : poppler-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : zlib-dev
@@ -83,15 +84,15 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-19.12.3
-cd %{_builddir}/kitinerary-19.12.3
+%setup -q -n kitinerary-20.04.0
+cd %{_builddir}/kitinerary-20.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583510088
+export SOURCE_DATE_EPOCH=1587692108
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -108,10 +109,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583510088
+export SOURCE_DATE_EPOCH=1587692108
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
-cp %{_builddir}/kitinerary-19.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kitinerary-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kitinerary/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -169,6 +170,8 @@ popd
 /usr/include/KPim/KItinerary/Uic9183Block
 /usr/include/KPim/KItinerary/Uic9183Parser
 /usr/include/KPim/KItinerary/Uic9183TicketLayout
+/usr/include/KPim/KItinerary/VdvTicket
+/usr/include/KPim/KItinerary/VdvTicketParser
 /usr/include/KPim/KItinerary/Vendor0080Block
 /usr/include/KPim/KItinerary/Visit
 /usr/include/KPim/kitinerary/action.h
@@ -213,8 +216,11 @@ popd
 /usr/include/KPim/kitinerary/uic9183block.h
 /usr/include/KPim/kitinerary/uic9183parser.h
 /usr/include/KPim/kitinerary/uic9183ticketlayout.h
+/usr/include/KPim/kitinerary/vdvticket.h
+/usr/include/KPim/kitinerary/vdvticketparser.h
 /usr/include/KPim/kitinerary/vendor0080block.h
 /usr/include/KPim/kitinerary/visit.h
+/usr/include/KPim/kitinerary_version.h
 /usr/lib64/cmake/KPimItinerary/KPimItineraryConfig.cmake
 /usr/lib64/cmake/KPimItinerary/KPimItineraryConfigVersion.cmake
 /usr/lib64/cmake/KPimItinerary/KPimItineraryTargets-relwithdebinfo.cmake
@@ -224,7 +230,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.13.3
+/usr/lib64/libKPimItinerary.so.5.14.0
 
 %files license
 %defattr(0644,root,root,0755)
