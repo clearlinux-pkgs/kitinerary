@@ -6,7 +6,7 @@
 #
 Name     : kitinerary
 Version  : 21.04.2
-Release  : 36
+Release  : 37
 URL      : https://download.kde.org/stable/release-service/21.04.2/src/kitinerary-21.04.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.04.2/src/kitinerary-21.04.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.04.2/src/kitinerary-21.04.2.tar.xz.sig
