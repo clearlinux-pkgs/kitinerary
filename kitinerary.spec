@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kitinerary
-Version  : 21.12.3
-Release  : 46
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/kitinerary-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kitinerary-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kitinerary-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 47
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/kitinerary-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kitinerary-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kitinerary-22.04.0.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0
@@ -29,8 +29,6 @@ BuildRequires : kpkpass-dev
 BuildRequires : libxml2-dev
 BuildRequires : openssl-dev
 BuildRequires : poppler-dev
-BuildRequires : qtbase-dev
-BuildRequires : qtbase-dev mesa-dev
 BuildRequires : zlib-dev
 
 %description
@@ -85,15 +83,15 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-21.12.3
-cd %{_builddir}/kitinerary-21.12.3
+%setup -q -n kitinerary-22.04.0
+cd %{_builddir}/kitinerary-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646551105
+export SOURCE_DATE_EPOCH=1650680340
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -109,17 +107,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646551105
+export SOURCE_DATE_EPOCH=1650680340
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
-cp %{_builddir}/kitinerary-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kitinerary/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/kitinerary-21.12.3/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kitinerary/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kitinerary-21.12.3/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kitinerary/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/kitinerary-21.12.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kitinerary/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kitinerary-21.12.3/README.md.license %{buildroot}/usr/share/package-licenses/kitinerary/fca67987925d2ed70e898f6dd9c7fe4b458d416d
-cp %{_builddir}/kitinerary-21.12.3/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/kitinerary/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
-cp %{_builddir}/kitinerary-21.12.3/src/cli/org.kde.kitinerary-extractor.desktop.license %{buildroot}/usr/share/package-licenses/kitinerary/864bc0eb28c73bd997ac19ff91935ab771846615
-cp %{_builddir}/kitinerary-21.12.3/src/knowledgedb-generator/timezones.qgs.license %{buildroot}/usr/share/package-licenses/kitinerary/864bc0eb28c73bd997ac19ff91935ab771846615
+cp %{_builddir}/kitinerary-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kitinerary/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kitinerary-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kitinerary/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/kitinerary-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kitinerary/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kitinerary-22.04.0/README.md.license %{buildroot}/usr/share/package-licenses/kitinerary/fca67987925d2ed70e898f6dd9c7fe4b458d416d
+cp %{_builddir}/kitinerary-22.04.0/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/kitinerary/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
+cp %{_builddir}/kitinerary-22.04.0/src/cli/org.kde.kitinerary-extractor.desktop.license %{buildroot}/usr/share/package-licenses/kitinerary/864bc0eb28c73bd997ac19ff91935ab771846615
+cp %{_builddir}/kitinerary-22.04.0/src/knowledgedb-generator/timezones.qgs.license %{buildroot}/usr/share/package-licenses/kitinerary/864bc0eb28c73bd997ac19ff91935ab771846615
 pushd clr-build
 %make_install
 popd
@@ -273,12 +270,11 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.19.3
+/usr/lib64/libKPimItinerary.so.5.20.0
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/kitinerary/20079e8f79713dce80ab09774505773c926afa2a
-/usr/share/package-licenses/kitinerary/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/kitinerary/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 /usr/share/package-licenses/kitinerary/8287b608d3fa40ef401339fd907ca1260c964123
 /usr/share/package-licenses/kitinerary/864bc0eb28c73bd997ac19ff91935ab771846615
