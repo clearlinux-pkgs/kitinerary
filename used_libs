@@ -8,11 +8,12 @@ libKPimPkPass.so.5
 libQt5Core.so.5
 libQt5Gui.so.5
 libQt5Qml.so.5
+libZXing.so.1
 libc.so.6
 libcrypto.so.1.1
 libgcc_s.so.1
 libm.so.6
-libpoppler.so.121
+libpoppler.so.122
 libstdc++.so.6
 libxml2.so.2
 libz.so.1
