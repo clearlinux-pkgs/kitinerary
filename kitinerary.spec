@@ -6,7 +6,7 @@
 #
 Name     : kitinerary
 Version  : 22.04.3
-Release  : 54
+Release  : 55
 URL      : https://download.kde.org/stable/release-service/22.04.3/src/kitinerary-22.04.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.04.3/src/kitinerary-22.04.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.04.3/src/kitinerary-22.04.3.tar.xz.sig
