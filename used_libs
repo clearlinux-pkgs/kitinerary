@@ -1,5 +1,6 @@
 libKF5Archive.so.5
 libKF5CalendarCore.so.5
+libKF5Codecs.so.5
 libKF5Contacts.so.5
 libKF5I18n.so.5
 libKF5I18nLocaleData.so.5
@@ -13,7 +14,7 @@ libc.so.6
 libcrypto.so.1.1
 libgcc_s.so.1
 libm.so.6
-libpoppler.so.122
+libpoppler.so.123
 libstdc++.so.6
 libxml2.so.2
 libz.so.1
