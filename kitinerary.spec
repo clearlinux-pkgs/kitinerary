@@ -4,7 +4,7 @@
 #
 Name     : kitinerary
 Version  : 22.08.0
-Release  : 58
+Release  : 59
 URL      : https://download.kde.org/stable/release-service/22.08.0/src/kitinerary-22.08.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.08.0/src/kitinerary-22.08.0.tar.xz
 Summary  : Data model and extraction system for travel reservation information
