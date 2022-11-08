@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kitinerary
-Version  : 22.08.2
-Release  : 68
-URL      : https://download.kde.org/stable/release-service/22.08.2/src/kitinerary-22.08.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.2/src/kitinerary-22.08.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.2/src/kitinerary-22.08.2.tar.xz.sig
+Version  : 22.08.3
+Release  : 69
+URL      : https://download.kde.org/stable/release-service/22.08.3/src/kitinerary-22.08.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.08.3/src/kitinerary-22.08.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.08.3/src/kitinerary-22.08.3.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0
@@ -84,15 +84,15 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-22.08.2
-cd %{_builddir}/kitinerary-22.08.2
+%setup -q -n kitinerary-22.08.3
+cd %{_builddir}/kitinerary-22.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1665769070
+export SOURCE_DATE_EPOCH=1667933255
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -108,7 +108,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1665769070
+export SOURCE_DATE_EPOCH=1667933255
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp %{_builddir}/kitinerary-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -275,7 +275,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.21.2
+/usr/lib64/libKPimItinerary.so.5.21.3
 
 %files license
 %defattr(0644,root,root,0755)
