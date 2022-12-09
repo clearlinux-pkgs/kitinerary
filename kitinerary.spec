@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kitinerary
-Version  : 22.08.3
-Release  : 70
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/kitinerary-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/kitinerary-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/kitinerary-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 71
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/kitinerary-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/kitinerary-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/kitinerary-22.12.0.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0
@@ -84,15 +84,15 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-22.08.3
-cd %{_builddir}/kitinerary-22.08.3
+%setup -q -n kitinerary-22.12.0
+cd %{_builddir}/kitinerary-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667933255
+export SOURCE_DATE_EPOCH=1670545033
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -108,7 +108,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667933255
+export SOURCE_DATE_EPOCH=1670545033
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp %{_builddir}/kitinerary-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -172,6 +172,7 @@ popd
 /usr/include/KPim/KItinerary/Organization
 /usr/include/KPim/KItinerary/PdfDocument
 /usr/include/KPim/KItinerary/PdfImage
+/usr/include/KPim/KItinerary/PdfLink
 /usr/include/KPim/KItinerary/Person
 /usr/include/KPim/KItinerary/Place
 /usr/include/KPim/KItinerary/ProgramMembership
@@ -199,6 +200,7 @@ popd
 /usr/include/KPim/KItinerary/VdvTicketParser
 /usr/include/KPim/KItinerary/Vendor0080Block
 /usr/include/KPim/KItinerary/Vendor0080VUBlockData
+/usr/include/KPim/KItinerary/Vendor1154Block
 /usr/include/KPim/KItinerary/Visit
 /usr/include/KPim/kitinerary/abstractextractor.h
 /usr/include/KPim/kitinerary/action.h
@@ -237,6 +239,7 @@ popd
 /usr/include/KPim/kitinerary/organization.h
 /usr/include/KPim/kitinerary/pdfdocument.h
 /usr/include/KPim/kitinerary/pdfimage.h
+/usr/include/KPim/kitinerary/pdflink.h
 /usr/include/KPim/kitinerary/person.h
 /usr/include/KPim/kitinerary/place.h
 /usr/include/KPim/kitinerary/programmembership.h
@@ -264,6 +267,7 @@ popd
 /usr/include/KPim/kitinerary/vdvticketparser.h
 /usr/include/KPim/kitinerary/vendor0080block.h
 /usr/include/KPim/kitinerary/vendor0080vublockdata.h
+/usr/include/KPim/kitinerary/vendor1154block.h
 /usr/include/KPim/kitinerary/visit.h
 /usr/include/KPim/kitinerary_version.h
 /usr/lib64/cmake/KPimItinerary/KPimItineraryConfig.cmake
@@ -275,7 +279,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimItinerary.so.5
-/usr/lib64/libKPimItinerary.so.5.21.3
+/usr/lib64/libKPimItinerary.so.5.22.0
 
 %files license
 %defattr(0644,root,root,0755)
