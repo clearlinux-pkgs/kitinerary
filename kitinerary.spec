@@ -6,13 +6,13 @@
 #
 Name     : kitinerary
 Version  : 22.12.1
-Release  : 75
+Release  : 76
 URL      : https://download.kde.org/stable/release-service/22.12.1/src/kitinerary-22.12.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.12.1/src/kitinerary-22.12.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.12.1/src/kitinerary-22.12.1.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
-License  : BSD-3-Clause CC0-1.0 LGPL-2.0
+License  : BSD-3-Clause CC0-1.0 LGPL-2.0 ODbL-1.0
 Requires: kitinerary-data = %{version}-%{release}
 Requires: kitinerary-lib = %{version}-%{release}
 Requires: kitinerary-license = %{version}-%{release}
@@ -95,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673314458
+export SOURCE_DATE_EPOCH=1673631144
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -111,7 +111,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1673314458
+export SOURCE_DATE_EPOCH=1673631144
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp %{_builddir}/kitinerary-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -119,6 +119,7 @@ cp %{_builddir}/kitinerary-%{version}/CMakePresets.json.license %{buildroot}/usr
 cp %{_builddir}/kitinerary-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kitinerary/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
 cp %{_builddir}/kitinerary-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kitinerary/8287b608d3fa40ef401339fd907ca1260c964123 || :
 cp %{_builddir}/kitinerary-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kitinerary/20079e8f79713dce80ab09774505773c926afa2a || :
+cp %{_builddir}/kitinerary-%{version}/LICENSES/ODbL-1.0.txt %{buildroot}/usr/share/package-licenses/kitinerary/fb63c741bc85425d4f0fa8b08a5ca2596d416ce9 || :
 cp %{_builddir}/kitinerary-%{version}/README.md.license %{buildroot}/usr/share/package-licenses/kitinerary/fca67987925d2ed70e898f6dd9c7fe4b458d416d || :
 cp %{_builddir}/kitinerary-%{version}/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/kitinerary/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
 cp %{_builddir}/kitinerary-%{version}/src/cli/org.kde.kitinerary-extractor.desktop.license %{buildroot}/usr/share/package-licenses/kitinerary/864bc0eb28c73bd997ac19ff91935ab771846615 || :
@@ -293,6 +294,7 @@ popd
 /usr/share/package-licenses/kitinerary/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238
 /usr/share/package-licenses/kitinerary/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
+/usr/share/package-licenses/kitinerary/fb63c741bc85425d4f0fa8b08a5ca2596d416ce9
 /usr/share/package-licenses/kitinerary/fca67987925d2ed70e898f6dd9c7fe4b458d416d
 
 %files locales -f kitinerary.lang
