@@ -6,7 +6,7 @@
 #
 Name     : kitinerary
 Version  : 22.12.2
-Release  : 79
+Release  : 80
 URL      : https://download.kde.org/stable/release-service/22.12.2/src/kitinerary-22.12.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.12.2/src/kitinerary-22.12.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.12.2/src/kitinerary-22.12.2.tar.xz.sig
