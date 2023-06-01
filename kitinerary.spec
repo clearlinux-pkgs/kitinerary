@@ -7,7 +7,7 @@
 #
 Name     : kitinerary
 Version  : 23.04.1
-Release  : 88
+Release  : 89
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/kitinerary-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/kitinerary-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/kitinerary-23.04.1.tar.xz.sig
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684884166
+export SOURCE_DATE_EPOCH=1685583721
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -129,7 +129,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684884166
+export SOURCE_DATE_EPOCH=1685583721
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp %{_builddir}/kitinerary-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -164,7 +164,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5Itinerary.so
 /usr/include/KPim5/KItinerary/AbstractExtractor
 /usr/include/KPim5/KItinerary/Action
 /usr/include/KPim5/KItinerary/AlphaId
@@ -314,7 +313,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5Itinerary.so.5
 /V3/usr/lib64/libKPim5Itinerary.so.5.23.1
 /usr/lib64/libKPim5Itinerary.so.5
 /usr/lib64/libKPim5Itinerary.so.5.23.1
