@@ -7,7 +7,7 @@
 #
 Name     : kitinerary
 Version  : 23.04.3
-Release  : 94
+Release  : 95
 URL      : https://download.kde.org/stable/release-service/23.04.3/src/kitinerary-23.04.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.3/src/kitinerary-23.04.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.3/src/kitinerary-23.04.3.tar.xz.sig
