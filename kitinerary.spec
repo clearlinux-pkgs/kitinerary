@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kitinerary
-Version  : 23.04.3
-Release  : 95
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/kitinerary-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/kitinerary-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/kitinerary-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 96
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/kitinerary-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/kitinerary-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/kitinerary-23.08.0.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 LGPL-2.0 ODbL-1.0
@@ -88,15 +88,15 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-23.04.3
-cd %{_builddir}/kitinerary-23.04.3
+%setup -q -n kitinerary-23.08.0
+cd %{_builddir}/kitinerary-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688889059
+export SOURCE_DATE_EPOCH=1693078899
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -129,7 +129,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1688889059
+export SOURCE_DATE_EPOCH=1693078899
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp %{_builddir}/kitinerary-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -192,6 +192,7 @@ popd
 /usr/include/KPim5/KItinerary/File
 /usr/include/KPim5/KItinerary/Flight
 /usr/include/KPim5/KItinerary/HtmlDocument
+/usr/include/KPim5/KItinerary/HttpResponse
 /usr/include/KPim5/KItinerary/IataBcbp
 /usr/include/KPim5/KItinerary/IataBcbpSections
 /usr/include/KPim5/KItinerary/JsonLdDocument
@@ -259,6 +260,7 @@ popd
 /usr/include/KPim5/kitinerary/file.h
 /usr/include/KPim5/kitinerary/flight.h
 /usr/include/KPim5/kitinerary/htmldocument.h
+/usr/include/KPim5/kitinerary/httpresponse.h
 /usr/include/KPim5/kitinerary/iatabcbp.h
 /usr/include/KPim5/kitinerary/iatabcbpsections.h
 /usr/include/KPim5/kitinerary/internal/parameter_type.h
@@ -313,9 +315,9 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5Itinerary.so.5.23.3
+/V3/usr/lib64/libKPim5Itinerary.so.5.24.0
 /usr/lib64/libKPim5Itinerary.so.5
-/usr/lib64/libKPim5Itinerary.so.5.23.3
+/usr/lib64/libKPim5Itinerary.so.5.24.0
 
 %files license
 %defattr(0644,root,root,0755)
