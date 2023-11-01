@@ -7,7 +7,7 @@
 #
 Name     : kitinerary
 Version  : 23.08.2
-Release  : 101
+Release  : 102
 URL      : https://download.kde.org/stable/release-service/23.08.2/src/kitinerary-23.08.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.08.2/src/kitinerary-23.08.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.08.2/src/kitinerary-23.08.2.tar.xz.sig
