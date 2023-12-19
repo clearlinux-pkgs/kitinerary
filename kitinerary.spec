@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kitinerary
-Version  : 23.08.3
-Release  : 106
-URL      : https://download.kde.org/stable/release-service/23.08.3/src/kitinerary-23.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.3/src/kitinerary-23.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.3/src/kitinerary-23.08.3.tar.xz.sig
+Version  : 23.08.4
+Release  : 107
+URL      : https://download.kde.org/stable/release-service/23.08.4/src/kitinerary-23.08.4.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.4/src/kitinerary-23.08.4.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.4/src/kitinerary-23.08.4.tar.xz.sig
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 LGPL-2.0 ODbL-1.0
@@ -90,15 +90,15 @@ locales components for the kitinerary package.
 
 
 %prep
-%setup -q -n kitinerary-23.08.3
-cd %{_builddir}/kitinerary-23.08.3
+%setup -q -n kitinerary-23.08.4
+cd %{_builddir}/kitinerary-23.08.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701994395
+export SOURCE_DATE_EPOCH=1703023718
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -157,7 +157,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701994395
+export SOURCE_DATE_EPOCH=1703023718
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp %{_builddir}/kitinerary-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -343,9 +343,9 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5Itinerary.so.5.24.3
+/V3/usr/lib64/libKPim5Itinerary.so.5.24.4
 /usr/lib64/libKPim5Itinerary.so.5
-/usr/lib64/libKPim5Itinerary.so.5.24.3
+/usr/lib64/libKPim5Itinerary.so.5.24.4
 
 %files license
 %defattr(0644,root,root,0755)
