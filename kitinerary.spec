@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kitinerary
-Version  : 24.02.2
-Release  : 120
-URL      : https://download.kde.org/stable/release-service/24.02.2/src/kitinerary-24.02.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/24.02.2/src/kitinerary-24.02.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/24.02.2/src/kitinerary-24.02.2.tar.xz.sig
+Version  : 24.05.0
+Release  : 121
+URL      : https://download.kde.org/stable/release-service/24.05.0/src/kitinerary-24.05.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/24.05.0/src/kitinerary-24.05.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/24.05.0/src/kitinerary-24.05.0.tar.xz.sig
 Source2  : BB463350D6EF31EF.pkey
 Summary  : Data model and extraction system for travel reservation information
 Group    : Development/Tools
@@ -40,7 +40,6 @@ BuildRequires : zxing-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
-Patch1: backport-compile-with-poppler-24.05.0.patch
 
 %description
 Sources for test files:
@@ -100,16 +99,15 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) BB463350D6EF31EF' gpg.status
-%setup -q -n kitinerary-24.02.2
-cd %{_builddir}/kitinerary-24.02.2
-%patch -P 1 -p1
+%setup -q -n kitinerary-24.05.0
+cd %{_builddir}/kitinerary-24.05.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1714692686
+export SOURCE_DATE_EPOCH=1716587419
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -170,7 +168,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1714692686
+export SOURCE_DATE_EPOCH=1716587419
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kitinerary
 cp %{_builddir}/kitinerary-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/kitinerary/c011fda7746c087a127999da1c4044854ee42238 || :
@@ -362,9 +360,9 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim6Itinerary.so.6.0.2
+/V3/usr/lib64/libKPim6Itinerary.so.6.1.0
 /usr/lib64/libKPim6Itinerary.so.6
-/usr/lib64/libKPim6Itinerary.so.6.0.2
+/usr/lib64/libKPim6Itinerary.so.6.1.0
 
 %files license
 %defattr(0644,root,root,0755)
