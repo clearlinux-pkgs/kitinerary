@@ -9,7 +9,7 @@
 #
 Name     : kitinerary
 Version  : 24.05.1
-Release  : 125
+Release  : 126
 URL      : https://download.kde.org/stable/release-service/24.05.1/src/kitinerary-24.05.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.05.1/src/kitinerary-24.05.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.05.1/src/kitinerary-24.05.1.tar.xz.sig
